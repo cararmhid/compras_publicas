@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Log in</title>
+  <title>Compras Públicas | Log in</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -17,7 +17,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="{{url('/')}}"><b>SISTEMA DE ACCESO</a>
+    <a href="{{url('/')}}"><b>SISTEMA DE COMPRAS PÚBLICAS</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -30,7 +30,7 @@
                         @csrf
 
             <div class="row mb-12">
-                <label for="email" >{{ __('Email Address') }}</label>
+                <label for="email" >{{ __('Dirección de correo electronico') }}</label>
                 <div class="col-md-12">
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 @error('email')
@@ -42,7 +42,7 @@
             </div>
             <br>
             <div class="row mb-12">
-                <label for="password">{{ __('Password') }}</label>
+                <label for="password">{{ __('Contraseña') }}</label>
 
                 <div class="col-md-12">
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -57,7 +57,7 @@
             <div class="row mb-0">
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-primary btn-block">
-                        {{ __('Login') }}
+                        {{ __('Ingresar') }}
                     </button>
                 </div>
             </div>
