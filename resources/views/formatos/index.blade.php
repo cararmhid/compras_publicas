@@ -21,9 +21,13 @@
                     <div class="card-header">
                         <h3 class="card-title"><b>Formatos TDR</b></h3>
                         <div class="card-tools">
+                            
                             <a href="{{url('/formatos/create')}}" class="btn btn-primary">
                                 <i class="bi bi-file-plus"></i> Agregar nuevo formato
                             </a>
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button> 
                         </div>
                     </div>
                     <div class="card-body" style="display: block;">
@@ -45,7 +49,7 @@
                                         <div class="btn-group" role="group" aria-label="Basic example">
                                             <!-- <a href="{{url('formatos',$formato->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a> -->
                                             <a href="{{route('formatos.edit',$formato->id)}}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
-                                            <a href="{{ route('formatos.download', $formato->id) }}" type="button" class="btn btn-success"><i class="bi bi-download"></i></a>
+                                            
                                             <form action="{{url('formatos',$formato->id)}}" method="post">
                                                 @csrf
                                                 {{method_field('DELETE')}}
@@ -66,7 +70,7 @@
                                     "pageLength": 10,
                                     "language": {
                                         "emptyTable": "No hay información",
-                                        "info": "Mostrando _Inicio_ a _Fin_ de _TOTAL_ Formatos",
+                                        "info": "Mostrando _START_ a _END_ de _TOTAL_ Formatos",
                                         "infoEmpty": "Mostrando 0 a 0 de 0 Formatos",
                                         "infoFiltered": "(Filtrado de _MAX_ total Formatos)",
                                         "infoPostFix": "",

@@ -39,7 +39,9 @@ Route::put('/admin/usuarios/{id}', [App\Http\Controllers\UsuarioController::clas
 
 Route::delete('/admin/usuarios/{id}', [App\Http\Controllers\UsuarioController::class, 'destroy'])->name('usuarios.destroy')->middleware('auth');
 
-Route::get('/formatos', [App\Http\Controllers\FormatoController::class, 'index']);
+Route::resource('/formatos',\App\Http\Controllers\FormatoController::class);
+
+/* Route::get('/formatos/create', [App\Http\Controllers\FormatoController::class, 'create'])->name('formatos.create'); */
 
 /* Route::get('/formatos', function () { 
   return view('formatos.index');

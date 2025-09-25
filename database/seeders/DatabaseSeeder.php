@@ -20,11 +20,14 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        User::create([
+        /* User::create([
             'name'=>'admin',
             'email'=>'admin@admin.com',
             'password'=>Hash::make('12345678'),
-        ]);
+        ]); */
 
+        $this->call([
+            FormatoSeeder::class,
+        ]);
     }
 }
