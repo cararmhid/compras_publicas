@@ -9,7 +9,7 @@ use Illiminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 
-class direccionController extends Controller
+class DireccionController extends Controller
 {
     /**
      * Display a listing of the resource.

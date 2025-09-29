@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Storage;
 use PDF;
 
 
-class necesidadController extends Controller
+class NecesidadController extends Controller
 {
   
     public function index()

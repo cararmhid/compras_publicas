@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illiminate\Support\Facades\DB;
 
-class flujo5Controller extends Controller
+class Flujo5Controller extends Controller
 {
     /**
      * Display a listing of the resource.

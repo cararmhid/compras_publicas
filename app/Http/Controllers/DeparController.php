@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illiminate\Support\Facades\DB;
 
-class deparController extends Controller
+class DeparController extends Controller
 {
     /**
      * Display a listing of the resource.

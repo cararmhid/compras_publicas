@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class arch_flu extends Model
+class Flujo extends Model
 {
     use HasFactory;
 }

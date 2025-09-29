@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illiminate\Support\Facades\DB;
 
-class procesoController extends Controller
+class ProcesoController extends Controller
 {
     /**
      * Display a listing of the resource.

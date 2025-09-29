@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class flujo5 extends Model
+class Flujo5 extends Model
 {
     use HasFactory;
 }

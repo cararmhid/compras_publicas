@@ -13,7 +13,7 @@ class EnviarWhatsappController extends Controller
 {
 
 
- public function enviarWhatsapp(Request $request)
+ public function EnviarWhatsapp(Request $request)
 {
     $resultados = DB::table('flujos')
         ->join('users', 'users.id', '=', 'flujos.id_user')
