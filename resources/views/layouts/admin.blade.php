@@ -96,7 +96,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                          with font-awesome or any other icon font library -->
 
 
-
+                @if (session('menu1') == 1) 
                     <li class="nav-item">
                         <a href="#" class="nav-link active">
                             <i class="nav-icon fas"><i class="bi bi-people"></i></i>
@@ -114,65 +114,192 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>
                         </ul>
                     </li>
-
-                    <li class="nav-item">
+                
+                @endif
+                @if (session('menu2') == 1) 
+                      <li class="nav-item">
                         <a href="{{url('/formatos')}}" class="nav-link active">
-                            <i class="nav-icon fas"><i class="fas fa-file-alt"></i></i>
+                            <i class="nav-icon fas"><i class="bi bi-file-earmark-ruled"></i></i>
                             <p>
                                 Formatos TDR
                             </p>
                         </a>
                     </li>
-
+                
+                    @endif
+                    @if (session('menu3') == 1) 
                     <li class="nav-item">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas"><i class="bi bi-people"></i></i>
+                        <a href="{{url('/solicituds')}}" class="nav-link active">
+                            <i class="nav-icon fas"><i class="bi bi-file-earmark-text"></i></i>
                             <p>
-                                Menú 3
+                                Iniciar Proceso de Compra
+                            </p>
+                        </a>
+                    </li>                
+                    @endif
+
+                    @if (session('menu4') == 1) 
+                    <li class="nav-item">
+                        <a href="{{url('/necesidads')}}" class="nav-link active">
+                            <i class="nav-icon fas"><i class="bi bi-stack-overflow"></i></i>
+                            <p>
+                                Seguimiento a los Procesos
+                            </p>
+                        </a>
+                    </li>                
+                    @endif
+
+                    @if (session('menu5') == 1) 
+                    <li class="nav-item">
+                        <a href="{{url('/pacs')}}" class="nav-link active">
+                            <i class="nav-icon fas"><i class="bi bi-pencil-square"></i></i>
+                            <p>
+                                Reformas al PAC
                             </p>
                         </a>
                     </li>
+                    @endif
 
                     <li class="nav-item">
                         <a href="#" class="nav-link active">
-                            <i class="nav-icon fas"><i class="bi bi-people"></i></i>
+                            <i class="nav-icon fas"><i class="bi bi-menu-app"></i></i>
                             <p>
-                                Menú 4
+                                Tipo de Procedimientos
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{url('/flujo1s')}}" class="nav-link active">
+                                <i class="bi bi-menu-button-fill"></i>
+                                    <p>Infima Cuantía</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url('/flujo2s')}}" class="nav-link active">
+                                <i class="bi bi-menu-button-fill"></i>
+                                     <p>Catálogo Electrónico</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url('/flujo3s')}}" class="nav-link active">
+                                <i class="bi bi-menu-button-fill"></i>
+                                      <p>Común</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url('/flujo4s')}}" class="nav-link active">
+                                <i class="bi bi-menu-button-fill"></i>
+                                      <p>Especial</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url('/flujo5s')}}" class="nav-link active">
+                                <i class="bi bi-menu-button-fill"></i>
+                                      <p>Verificación Producto Nacional</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-
+            
+                    @if (session('menu7') == 1) 
                     <li class="nav-item">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas"><i class="bi bi-people"></i></i>
+                        <a href="{{url('/poas')}}" class="nav-link active">
+                            <i class="nav-icon fas"><i class="bi bi-journal-plus"></i></i>
                             <p>
-                                Menú 5
-                                <i class="right fas fa-angle-left"></i>
+                                Ingreso del POA
                             </p>
                         </a>
                     </li>
+                    @endif
 
-                    <li class="nav-item">
+                @if (session('menu8') == 1)
+                <li class="nav-item">
                         <a href="#" class="nav-link active">
-                            <i class="nav-icon fas"><i class="bi bi-people"></i></i>
+                            <i class="nav-icon fas"><i class="bi bi-graph-up-arrow"></i></i>
                             <p>
-                                Menú 6
+                               Gráficos Estadísticos
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ url('/grafico') }}" class="nav-link active">
+                                <i class="nav-icon fas"><i class="bi bi-bar-chart-fill"></i></i>
+                                   <p>Procesos por Cuatrimestre</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/grafico/index1') }}" class="nav-link active">
+                                <i class="nav-icon fas"><i class="bi bi-bar-chart-fill"></i></i>
+                                    <p>Tipo de Procesos</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/grafico/index2') }}" class="nav-link active">
+                                <i class="nav-icon fas"><i class="bi bi-bar-chart-fill"></i></i>
+                                    <p>Procesos por Unidades</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="{{ url('/grafico/index3') }}" class="nav-link active">
+                            <i class="nav-icon fas"><i class="bi bi-bar-chart-fill"></i></i>
+                                    <p>Tipo de Reformas</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/grafico/index4') }}" class="nav-link active">
+                                <i class="nav-icon fas"><i class="bi bi-bar-chart-fill"></i></i>
+                                    <p>Ahorro por Direcciones</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
+                @endif
 
+                @if (session('menu9') == 1)
                     <li class="nav-item">
                         <a href="#" class="nav-link active">
-                            <i class="nav-icon fas"><i class="bi bi-people"></i></i>
+                            <i class="nav-icon fas"><i class="bi bi-table"></i></i>
                             <p>
-                                Menú 7
+                                Tablas Paraméticas
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{url('/docuflujos')}}" class="nav-link active">
+                                <i class="bi bi-ticket-detailed-fill"></i>
+                                     <p>Listado de Documentos</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url('/direcciones')}}" class="nav-link active">
+                                <i class="bi bi-ticket-detailed-fill"></i>
+                                    <p>Direcciones</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url('/depars')}}" class="nav-link active">
+                                <i class="bi bi-ticket-detailed-fill"></i>
+                                    <p>Departamentos</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url('/procesos')}}" class="nav-link active">
+                                <i class="bi bi-ticket-detailed-fill"></i>
+                                    <p>Tipo de Procesos</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url('/enviar-whatsapp')}}" class="nav-link active">
+                                <i class="bi bi-ticket-detailed-fill"></i>
+                                    <p>Archivos de los Requerimientos</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-
+                    @endif
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
@@ -223,7 +350,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
         <div class="container">
+        
             @yield('content')
+            
         </div>
 
     </div>
@@ -233,10 +362,50 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
         <div class="p-3">
-            <h5>Title</h5>
+            <h5>Accesorios EMAPA-I</h5>
+            <p></p>
             <p>Sidebar content</p>
+
+            <aside class="control-sidebar control-sidebar-dark">
+                <nav> 
+                    <ul> 
+                        <li><h5><a href="{{url('https://okcalc.com/es/')}}" target="_blank" rel="noopener noreferrer" id="link-calculadora">Calculadora</a></h5> </li> 
+                        <li><h5><a href="{{url( 'https://portal.compraspublicas.gob.ec/sercop/calculadora-de-presupuesto-referencial/')}}" target="_blank" rel="noopener noreferrer" id="link-calendario">Calculadora SERCOP</a></h5> </li> 
+                        <li><h5><a href="{{url('https://calendar.google.com/calendar/u/0/r/month/2025/1/1?pli=1')}}" target="_blank" rel="noopener noreferrer" id="link-calculadora">Calendario</a></h5> </li> 
+                        <li><h5><a href="{{ route('password.change') }}" onclick="return confirmChangePassword(event)">Cambiar Contraseña</a></h5> </li>
+   
+                        </ul> 
+                </nav> 
+                <div id="contenido"></div> 
+            </aside> 
+        
+
         </div>
     </aside>
+    <script>
+        function confirmChangePassword(event) {
+        event.preventDefault();
+        Swal.fire({
+            title: 'Cambiar Contraseña',
+            text: 'Asegúrate de guardar o cerrar todas las pantallas abiertas antes de cambiar tu contraseña, ya que se cerrará tu sesión.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Cambiar',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Cancelar',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redirigir a la ruta de cambio de contraseña
+                window.location.href = "{{ route('password.change') }}";
+            }
+        });
+        }
+    </script>
+
+
+
+
     <!-- /.control-sidebar -->
 
     <!-- Main Footer -->
@@ -246,7 +415,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             Inf. Técnica
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2024.</strong> All rights reserved.
+        <strong>Copyright &copy; 2025. Desarrollo: Ing. Carlos Hidrobo </strong> All rights reserved.
     </footer>
 </div>
 <!-- ./wrapper -->
@@ -270,6 +439,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
 <script src="{{asset('plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
+
+<!-- <script> 
+    $(document).ready(function() { 
+
+        // Obtener la página actual desde localStorage 
+        var currentPage = localStorage.getItem('current_page') ? parseInt(localStorage.getItem('current_page')) : 0; 
+        
+        // Manejar el evento de clic para el botón de regreso 
+        $('#back-button').click(function() { window.history.back(); }); 
+        
+        // Guardar la página actual en localStorage 
+        $(window).on('unload', function() { localStorage.setItem('current_page', currentPage); }); 
+    }); 
+</script> -->
 
 </body>
 </html>

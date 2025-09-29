@@ -1,39 +1,52 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="row">
-        <h1>Listado de usuarios</h1>
-    </div>
-    <hr>
+
+<div class="content" style="margin-left: 20px">
+    <h1>Listado de Usuarios</h1>
+
+    @if($message = Session::get('mensaje'))
+        <script>
+            Swal.fire({
+                title: "Buen trabajo",
+                text: "{{$message}}",
+                icon: "success"
+            });
+        </script>
+    @endif
+
     <div class="row">
         <div class="col-md-12">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Datos registrados</h3>
+                    <h3 class="card-title"><b>Usuarios</b></h3>
                     <div class="card-tools">
-                        <a href="{{url('/admin/usuarios/create')}}" class="btn btn-primary"><i class="bi bi-person-fill-add"></i> Nuevo usuario</a>
+                        
+                        <a href="{{url('/admin/usuarios/create')}}" class="btn btn-primary">
+                            <i class="bi bi-file-plus"></i> Agregar nuevo Usuario
+                        </a>
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>   
                     </div>
                 </div>
-                <div class="card-body">
-                    <table class="table table-bordered table-sm table-striped table-hover">
+                <div class="card-body" style="display: block;">
+
+                    <table id="usuarios" class="table table-bordered table-striped table-sm">
                         <thead>
                         <tr>
-                            <th><center>Nro</center></th>
+                            <th></th>
+                            <th><center>Id</center></th>
                             <th><center>Nombre</center></th>
                             <th><center>Email</center></th>
                             <th><center>Acciones</center></th>
                         </tr>
                         </thead>
                         <tbody>
-                        @php $contador = 0; @endphp
-
                         @foreach($usuarios as $usuario)
-                            @php
-                                $contador = $contador + 1;
-                                $id = $usuario->id;
-                            @endphp
                             <tr>
-                                <td style="text-align: center">{{$contador}}</td>
+                                <td></td>
+                                <td>{{$usuario->id}}</td>
                                 <td>{{$usuario->name}}</td>
                                 <td>{{$usuario->email}}</td>
                                 <td style="text-align:center">
@@ -42,40 +55,96 @@
                                             <i class="bi bi-eye"></i>
                                         </a>
                                         <a href="{{route('usuarios.edit',$usuario->id)}}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
-                                        <form action="{{route('usuarios.destroy',$usuario->id)}}" onclick="preguntar<?=$id;?>(event)"
-                                              method="post" id="miFormulario<?=$id;?>">
+                                       <form action="{{route('usuarios.destroy',$usuario->id)}}" method="post" enctype="multipart/form-data">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" style="border-radius: 0px 5px 5px 0px"><i class="bi bi-trash"></i></button>
+                                            <button type="submit" onclick="return confirm('¿Esta seguro de eliminar este registro?')" class="btn btn-danger">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
                                         </form>
-                                        <script>
-                                            function preguntar<?=$id;?>(event) {
-                                                event.preventDefault();
-                                                Swal.fire({
-                                                    title: 'Eliminar registro',
-                                                    text: '¿Desea eliminar este registro?',
-                                                    icon: 'question',
-                                                    showDenyButton: true,
-                                                    confirmButtonText: 'Eliminar',
-                                                    confirmButtonColor: '#a5161d',
-                                                    denyButtonColor: '#270a0a',
-                                                    denyButtonText: 'Cancelar',
-                                                }).then((result) => {
-                                                    if (result.isConfirmed) {
-                                                        var form = $('#miFormulario<?=$id;?>');
-                                                        form.submit();
-                                                    }
-                                                });
-                                            }
-                                        </script>
                                     </div>
                                 </td>
                             </tr>
                         @endforeach
-                        </tbody>
+                        </tbody> 
                     </table>
+
+                    <script>
+                        $(function () {
+                            // Obtener la página actual desde localStorage 
+                            //var currentPage = localStorage.getItem('current_page') ? parseInt(localStorage.getItem('current_page')) : 0; 
+
+                            $("#usuarios").DataTable({
+                                //dom: 'Bfrtip',
+                                "pageLength": 10,
+                                "language": {
+                                    "emptyTable": "No hay información",
+                                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
+                                    "infoEmpty": "Mostrando 0 a 0 de 0 Usuarios",
+                                    "infoFiltered": "(Filtrado de _MAX_ total Usuarios)",
+                                    "infoPostFix": "",
+                                    "thousands": ",",
+                                    "lengthMenu": "Mostrar _MENU_ Usuarios",
+                                    "loadingRecords": "Cargando...",
+                                    "processing": "Procesando...",
+                                    "search": "Buscador:",
+                                    "zeroRecords": "Sin resultados encontrados",
+                                    "paginate": {
+                                        "first": "Primero",
+                                        "last": "Ultimo",
+                                        "next": "Siguiente",
+                                        "previous": "Anterior"
+                                    }
+                                },
+                                "responsive": true, "lengthChange": true, "autoWidth": false,
+                                
+                                buttons: [{
+                                    extend: 'collection',
+                                    text: 'Reportes',
+                                    orientation: 'landscape',
+                                    buttons: [{
+                                        text: 'Copiar',
+                                        extend: 'copy',
+                                    }, {
+                                        extend: 'pdf'
+                                    },{
+                                        extend: 'csv'
+                                    },{
+                                        extend: 'excel'
+                                    },{
+                                        text: 'Imprimir',
+                                        extend: 'print'
+                                    }
+                                    ]
+                                },
+                                    {
+                                        extend: 'colvis',
+                                        text: 'Visor de columnas',
+                                        //orientation: 'landscape',
+                                        //collectionLayout: 'fixed three-column'
+                                    }
+                                ],
+                                order: [[ 0, "asc" ]],
+                                columnDefs: [ 
+                                    { 
+                                    targets: 0,
+                                    visible: false,
+                                    searchable: false
+                                     } ], 
+                                     //displayStart: currentPage * 10, 
+                                     initComplete: function () { 
+                                        this.api().buttons().container().appendTo('#usuarios_wrapper .col-md-6:eq(0)'); }     
+                            });
+                           //table.on('page.dt', function() { var info = table.page.info(); localStorage.setItem('current_page', info.page); });
+                        });
+                    </script>
+
                 </div>
             </div>
         </div>
     </div>
+
+</div>
+
 @endsection
+

@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
 </head>
 <body class="hold-transition login-page">
+
 <div class="login-box">
   <div class="login-logo">
     <a href="{{url('/')}}"><b>SISTEMA DE COMPRAS PÚBLICAS</b></a>
@@ -22,21 +23,27 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
+
+    @if (session('status')) 
+      <div class="alert alert-success"> 
+        {{ session('status') }} 
+      </div> 
+    @endif
+    
       <p class="login-box-msg">Ingrese sus credenciales</p>
     
       <div class="row">
         <div class="col-md-12">
-        <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
+          <form method="POST" action="{{ route('login') }}">
+          @csrf
             <div class="row mb-12">
                 <label for="email" >{{ __('Dirección de correo electronico') }}</label>
                 <div class="col-md-12">
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                @error('email')
-                    <span class="invalid-feedback" role="alert">
+                    @error('email')
+                      <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
-                    </span>
+                      </span>
                     @enderror
                 </div>
             </div>
@@ -47,9 +54,9 @@
                 <div class="col-md-12">
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                     @error('password')
-                    <span class="invalid-feedback" role="alert">
+                      <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
-                    </span>
+                      </span>
                     @enderror
                 </div>
             </div>
@@ -61,7 +68,18 @@
                     </button>
                 </div>
             </div>
-        </form>
+          </form>
+          <br/>
+          <br/> 
+
+          <div class="row"> 
+            <div class="col-12 text-right"> 
+              <p class="mb-1"> 
+                <a href="{{ route('password.request') }}">¡Olvidé mi contraseña!</a> 
+              </p> 
+            </div> 
+          </div>
+
         </div>
       </div>
 

@@ -1,0 +1,20 @@
+Date: 2/7/2025
+Time: 10:0
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 10:14
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 10:28
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 11:20
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------

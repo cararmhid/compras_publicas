@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="content" style="margin-left: 20px">
-        <h1>Listado de formatos TDR</h1>
+        <h1>Formatos para Inicio de Procesos</h1>
 
         @if($message = Session::get('mensaje'))
             <script>
@@ -21,13 +21,14 @@
                     <div class="card-header">
                         <h3 class="card-title"><b>Formatos TDR</b></h3>
                         <div class="card-tools">
-                            
-                            <a href="{{url('/formatos/create')}}" class="btn btn-primary">
+                            @if (session('menu10') == 1) 
+                            <a href="{{url('formatos/create')}}" class="btn btn-primary">
                                 <i class="bi bi-file-plus"></i> Agregar nuevo formato
                             </a>
+                            @endif
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
-                            </button> 
+                            </button>   
                         </div>
                     </div>
                     <div class="card-body" style="display: block;">
@@ -35,26 +36,32 @@
                         <table id="formatos" class="table table-bordered table-striped table-sm">
                             <thead>
                             <tr>
+                                <th></th>
                                 <th>Descripción</th>
-                                <th>Url</th>
-                                <th>Acción</th>
+                              <th>Acción</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($formatos as $formato)
                                 <tr>
+                                    <td></td>
                                     <td>{{$formato->descripcion}}</td>
-                                    <td>{{$formato->url}}</td>
                                     <td style="text-align: center;">
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            <!-- <a href="{{url('formatos',$formato->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a> -->
-                                            <a href="{{route('formatos.edit',$formato->id)}}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
+                                            <a href="{{url('formatos',$formato->id)}}" type="button" class="btn btn-secondary"><i class="bi bi-eye" title="Visualiza el registro"></i></a>
+                                            @if (session('menu10') == 1) 
+                                                <a href="{{route('formatos.edit',$formato->id)}}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
+                                            @endif
+                                                <a href="{{ route('formatos.download', $formato->id) }}" class="btn btn-warning"><i class="bi bi-download" title="Descargar Archivo"></i></a>
                                             
-                                            <form action="{{url('formatos',$formato->id)}}" method="post">
+                                            <form action="{{route('formatos.destroy',$formato->id)}}" method="post">
                                                 @csrf
-                                                {{method_field('DELETE')}}
-                                                <button type="submit" onclick="return confirm('¿Esta seguro de eliminar este registro?')" class="btn btn-danger">
+                                                @method('DELETE')
+                                                @if (session('menu10') == 1) 
+                                                    <button type="submit" onclick="return confirm('¿Esta seguro de eliminar este registro?')" class="btn btn-danger">
                                                     <i class="bi bi-trash"></i>
+                                                @endif 
+                                                  
                                                 </button>
                                             </form>
                                         </div>
@@ -66,7 +73,11 @@
 
                         <script>
                             $(function () {
+                                // Obtener la página actual desde localStorage 
+                                //var currentPage = localStorage.getItem('current_page') ? parseInt(localStorage.getItem('current_page')) : 0; 
+
                                 $("#formatos").DataTable({
+                                    //dom: 'Bfrtip',
                                     "pageLength": 10,
                                     "language": {
                                         "emptyTable": "No hay información",
@@ -88,6 +99,7 @@
                                         }
                                     },
                                     "responsive": true, "lengthChange": true, "autoWidth": false,
+                                    
                                     buttons: [{
                                         extend: 'collection',
                                         text: 'Reportes',
@@ -110,10 +122,22 @@
                                         {
                                             extend: 'colvis',
                                             text: 'Visor de columnas',
-                                            collectionLayout: 'fixed three-column'
+                                            //orientation: 'landscape',
+                                            //collectionLayout: 'fixed three-column'
                                         }
                                     ],
-                                }).buttons().container().appendTo('#formatos_wrapper .col-md-6:eq(0)');
+                                    order: [[ 0, "asc" ]],
+                                    columnDefs: [ 
+                                        { 
+                                        targets: 0,
+                                        visible: false,
+                                        searchable: false
+                                         } ], 
+                                         //displayStart: currentPage * 10, 
+                                         initComplete: function () { 
+                                            this.api().buttons().container().appendTo('#formatos_wrapper .col-md-6:eq(0)'); }     
+                                });
+                               //table.on('page.dt', function() { var info = table.page.info(); localStorage.setItem('current_page', info.page); });
                             });
                         </script>
 

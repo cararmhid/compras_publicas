@@ -18,8 +18,10 @@ class FormatoFactory extends Factory
     public function definition(): array
     {
         return [
-            'descripcion'=> Str::random(10),
-            'url'=> Str::random(50),
+            //'descripcion'=> Str::random(10),
+           // 'url'=> Str::random(50),
+           //'descripcion' => fake()->name,
+           //'url' => fake()->url,
         ];
     }
 }

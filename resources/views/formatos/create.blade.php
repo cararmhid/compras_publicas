@@ -20,7 +20,7 @@
                         <h3 class="card-title"><b>Llene los datos</b></h3>
                     </div>
                     <div class="card-body" style="display: block;">
-                        <form action="{{url('/formatos')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('formatos.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-12   ">
@@ -33,7 +33,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="">Url</label> <b>*</b>
+                                                <label for="">Archivo</label> <b>*</b>
                                                 <input type="file" name="url" value="{{old('url')}}" class="form-control" required>
                                             </div>
                                         </div>
@@ -45,7 +45,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <a href="" class="btn btn-secondary">Cancelar</a>
+                                        <a href="{{url('/formatos')}}" class="btn btn-secondary">Cancelar</a>
                                         <button type="submit" class="btn btn-primary">Guardar registro</button>
                                     </div>
                                 </div>

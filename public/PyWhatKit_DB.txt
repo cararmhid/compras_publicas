@@ -1,0 +1,110 @@
+Date: 2/7/2025
+Time: 10:8
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 10:9
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 10:11
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 10:13
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 11:47
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 11:49
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 11:54
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 11:56
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 16:1
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 16:25
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 16:29
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 16:30
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 16:32
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 16:33
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 16:35
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 16:35
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 16:47
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 2/7/2025
+Time: 16:48
+Phone Number: +593987061720
+Message: Hola este mensaje fue enviado desde Laravel
+--------------------
+Date: 3/7/2025
+Time: 9:16
+Phone Number: +593992556406
+Message: Hola este mensaje fue enviado desde Laravel, Rommelin este es enviado desde LARAVEL con PYTHON sin el API de WHATSAPP
+--------------------
+Date: 3/7/2025
+Time: 9:17
+Phone Number: +593992556406
+Message: Hola este mensaje fue enviado desde Laravel, Rommelin este es enviado desde LARAVEL con PYTHON sin el API de WHATSAPP
+--------------------
+Date: 3/7/2025
+Time: 10:19
+Phone Number: +593987061720
+Message: Hola este mensaje es enviado desde LARAVEL con PYTHON sin el API de WHATSAPP
+--------------------
+Date: 10/7/2025
+Time: 17:14
+Phone Number: +593987061720
+Message: Estimad@ Carlos Hidrobo, le acaba de llegar el PROCESO DE COMPRA Nro. 1 a su bandeja. ⏰🛒👍
+--------------------
